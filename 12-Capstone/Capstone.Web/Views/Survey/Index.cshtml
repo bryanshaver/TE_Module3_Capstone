@@ -1,0 +1,53 @@
+﻿@model SurveyResult
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>New Geek Post</h2>
+<form asp-controller="Forum" asp-action="NewPost" method="post">
+    <table class="table">
+        <tr>
+            <td><label asp-for="ParkCode">Park Code</label></td> <!--Make this a drop down selection-->
+            <td>
+                <select id="ParkCode" name="ParkCode">
+                    <option value="CVNP">CVNP</option>
+                    <option value="ENP">ENP</option>
+                    <option value="GCNP">GCNP</option>
+                    <option value="GNP">GNP</option>
+                    <option value="GSMNP">GSMNP</option>
+                    <option value="GTNP">GTNP</option>
+                    <option value="MRNP">MRNP</option>
+                    <option value="RMNP">RMNP</option>
+                    <option value="YNP">YNP</option>
+                    <option value="YNP2">YNP2</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label asp-for="EmailAddress">Email Address</label></td>
+            <td><input asp-for="EmailAddress" /></td>
+        </tr>
+        <tr>
+            <td><label asp-for="State">State of Residence</label></td><!--Remember to vaildate this-->
+            <td><input asp-for="State" /></td>
+        </tr>
+        <tr>
+            <td><label asp-for="ActivityLevel">Activity Level</label></td><!--Make this 4 radio buttons-->
+            <td>
+                <input type="radio" id="inactive" name="activity" value="inactive">
+                <label for="inactive">inactive</label><br>
+                <input type="radio" id="sedentary" name="activity" value="sedentary">
+                <label for="sedentary">sedentary</label><br>
+                <input type="radio" id="active" name="activity" value="active">
+                <label for="active">active</label>
+                <input type="radio" id="extremely_active" name="activity" value="extremely_active">
+                <label for="extremely_active">extremely active</label>
+            </td>
+</tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Submit!" /></td>
+        </tr>
+    </table>
+</form>
+

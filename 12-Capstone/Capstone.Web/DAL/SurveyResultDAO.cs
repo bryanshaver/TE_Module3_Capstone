@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Capstone.Web.DAL
 {
-    public class SurveyResultDAO
+    public class SurveyResultDAO : ISurveyResultDAO
     {
         private readonly string connectionString;
 
@@ -50,6 +50,30 @@ FROM survey_result";
             }
 
             return surveyResults;
+        }
+
+        public int SaveSurvey(SurveyResult survey)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    string sql = $"INSERT INTO survey_result (parkCode, emailAddress, state, activityLevel) VALUES (@parkCode, @emailAddress, @state, @activityLevel); Select @@Identity;";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@parkCode", survey.ParkCode);
+                    cmd.Parameters.AddWithValue("@emailAddress", survey.EmailAddress);
+                    cmd.Parameters.AddWithValue("@state", survey.State);
+                    cmd.Parameters.AddWithValue("@activityLevel", survey.ActivityLevel);
+
+                    return Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
         }
 
         private SurveyResult RowToObject(SqlDataReader rdr)
