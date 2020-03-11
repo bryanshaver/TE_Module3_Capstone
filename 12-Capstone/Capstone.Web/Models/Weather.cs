@@ -29,6 +29,23 @@ namespace Capstone.Web.Models
             {"low", "Be aware of the danger of exposurer in frigid temperatures." }
         };
 
+        public double ConvertTemp(string measurement, int temp)
+        {
+            double result = 0;
+
+            if (measurement == "F")
+            {
+                result = (temp * 1.8) + 32;
+            }
+            else
+            {
+                result = (temp - 32) / 1.8;
+            }
+
+            return result;
+        }
+
+
         public string GiveWarning(int high, int low)
         {
             string warning = " ";

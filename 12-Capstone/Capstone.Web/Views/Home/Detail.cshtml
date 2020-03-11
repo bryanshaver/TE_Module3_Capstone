@@ -5,15 +5,13 @@
 
 
 <img class="detailphoto" src="~/images/parks/@(Model.ParkCode).jpg" />
+<section id="name">
+    <h1>@Model.Park.ParkName</h1>
+    <h4>@Model.Park.Acreage acres in @Model.Park.State | Year Founded @Model.Park.YearFounded</h4>
+</section>
 
-<h1>@Model.Park.ParkName</h1>
-<h2>@Model.Park.Acreage  in @Model.Park.State | Year Founded @Model.Park.YearFounded</h2>
+<p id="description">@Model.Park.ParkDescription</p>
 
-<p>@Model.Park.ParkDescription</p>
-
-<h3>@Model.Park.Climate</h3>
-<h3>@Model.Park.NumberOfCampsites</h3>
-<h3>@Model.Park.MilesOfTrail</h3>
 
 <partial name="_Weather" model="Model" />
 

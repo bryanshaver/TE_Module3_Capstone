@@ -35,3 +35,60 @@ body {
         display: none;
     }
 }
+
+#headerlogo {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#header {
+    max-height: 200px;
+}
+
+
+
+#grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.park {
+    flex-basis: auto;
+    display: flex;
+    justify-content:space-evenly;
+    margin: 10px;
+    border: solid 1px gray;
+}
+
+#parkphoto {
+    padding: 5px;
+}
+
+#parkinfo {
+    padding: 5px;
+}
+
+.detailphoto {
+    width: 100%;
+}
+
+#name{
+    margin: 10px;
+}
+
+#description {
+    text-emphasis-color: black;
+}
+
+#weather {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#days {
+    flex-basis: auto;
+    margin: 4px;
+}
+

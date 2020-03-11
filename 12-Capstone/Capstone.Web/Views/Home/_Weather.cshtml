@@ -3,41 +3,21 @@
 
 *@
 
-<table>
+    <div id="weather">
+        <section id="days">
+            @foreach (Weather day in Model.Weather)
+            {
 
-    <thead>
-        <tr>
-            <th>Today</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+                <img src="~/images/weather/@(day.DisplayWeatherIcon(day.Forecast)).png" />
 
-        @foreach (Weather day in Model.Weather)
-        {
-            <tr>
-                <td><img src="~/images/weather/@(day.DisplayWeatherIcon(day.Forecast)).png" /></td>
-            </tr>
-            <tr>
-                <td>@day.High</td>
-            </tr>
-            <tr>
-                <td>@day.Low</td>
-            </tr>
-            <tr>
-                <td>@day.Forecast</td>
-            </tr>
-            <tr>
-                <td>@day.GiveAdvice(day.Forecast)</td>
-            </tr>
-            <tr>
-                <td>@day.GiveWarning(day.High, day.Low)</td>
-            </tr>
+                <p>@day.High @day.Low</p>
 
-        }
+                @day.Forecast
 
-    </tbody>
-</table>
+                @day.GiveAdvice(day.Forecast)
+
+                @day.GiveWarning(day.High, day.Low)
+
+            }
+        </section>
+    </div>
