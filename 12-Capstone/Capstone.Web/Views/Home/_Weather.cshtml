@@ -1,18 +1,33 @@
-﻿@model Park
+﻿@model ParkWeatherVM
 @*
-    
+
 *@
 
+<table>
 
+    <thead>
+        <tr>
+            <th>Today</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
 
-<h3>Today</h3>
+        @foreach (Weather day in Model.Weather)
+        {
+            <tr>
+                <td><img src="~/images/weather/@(Model.DisplayWeatherIcon(Model.Weather)).png" /></td>
+            </tr>
+            <tr>
+                <td>@day.High</td>
+                <td>@day.Low</td>
+                <td>@day.Forecast</td>
+                <td><h3>@Model.WeatherAdvice["weather"]</h3></td>
+            </tr>
+        }
 
-<table class="weather">
-    <tr>
-        <td class="today">
-            @Model.ParkCode.
-        </td>
-
-    </tr>
-
+    </tbody>
 </table>

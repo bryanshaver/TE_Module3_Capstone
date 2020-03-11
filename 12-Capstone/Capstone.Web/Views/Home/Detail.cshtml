@@ -1,4 +1,4 @@
-﻿@model Park
+﻿@model ParkWeatherVM
 @{
     ViewData["Title"] = "Detail";
 }
@@ -6,14 +6,17 @@
 
 <img class="detailphoto" src="~/images/parks/@(Model.ParkCode).jpg" />
 
-<h1>@Model.ParkName</h1>
-<h2>@Model.Acreage  in @Model.State | Year Founded @Model.YearFounded</h2>
+<h1>@Model.Park.ParkName</h1>
+<h2>@Model.Park.Acreage  in @Model.Park.State | Year Founded @Model.Park.YearFounded</h2>
 
-<p>@Model.ParkDescription</p>
+<p>@Model.Park.ParkDescription</p>
 
-<h3>@Model.Climate</h3>
-<h3>@Model.NumberOfCampsites</h3>
-<h3>@Model.MilesOfTrail</h3>
+<h3>@Model.Park.Climate</h3>
+<h3>@Model.Park.NumberOfCampsites</h3>
+<h3>@Model.Park.MilesOfTrail</h3>
+
+<partial name="_Weather" model="Model.Weather" />
+
 
 
 
