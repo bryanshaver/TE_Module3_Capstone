@@ -33,7 +33,7 @@ namespace Capstone.Web.Controllers
             Park park = parkDAO.GetParkByCode(parkCode);
             IList<Weather> weather = weatherDAO.GetWeather(parkCode);
             weather = weather.OrderBy(w => w.FiveDayForecastValue).ToList();
-            vm = new ParkWeatherVM(park, weather);
+            vm = new ParkWeatherVM();
 
             return View(vm);
         }

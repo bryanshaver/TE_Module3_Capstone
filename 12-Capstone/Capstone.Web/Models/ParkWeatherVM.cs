@@ -11,11 +11,11 @@ namespace Capstone.Web.Models
         public Park Park { get; set; }
 
         public Weather Day { get; set; }
-        public ParkWeatherVM(Park park, IList<Weather> weather)
-        {
-            Park = park;
-            Weather = weather;
-        }
+        //public ParkWeatherVM(Park park, IList<Weather> weather)
+        //{
+        //    Park = park;
+        //    Weather = weather;
+        //}
 
 
         public IList<Weather> Weather = new List<Weather>();
