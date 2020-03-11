@@ -11,5 +11,7 @@ namespace Capstone.Web.DAL
         IList<SurveyResult> GetSurveyResults();
         int SaveSurvey(SurveyResult survey);
 
+        IList<SurveyResultVM> GetSurveyResultsOrdered();
+
     }
 }

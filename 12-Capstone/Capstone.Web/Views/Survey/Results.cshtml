@@ -1,13 +1,12 @@
-﻿@model IList<SurveyResult>
+﻿@model IList<SurveyResultVM>
 @{
     ViewData["Title"] = "Results";
 }
 
-
 <h2>Daily Survey Results</h2>
-@foreach (SurveyResult result in Model)
+@foreach (SurveyResultVM result in Model)
 {
-
+    <p>@result.ParkCode has been voted as a favorite park @result.NumOfFaves times.</p>
 }
 
 <!--Find a way to count the total of each ParkCode in the database table and display the total count next to its parkcode-->

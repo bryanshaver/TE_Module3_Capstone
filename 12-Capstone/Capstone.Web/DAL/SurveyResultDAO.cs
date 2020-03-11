@@ -76,6 +76,47 @@ FROM survey_result";
             }
         }
 
+
+        public IList<SurveyResultVM> GetSurveyResultsOrdered()
+        {
+            List<SurveyResultVM> surveyResults = new List<SurveyResultVM>();
+
+            try
+            {
+                // Create a new connection object
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    // Open the connection
+                    conn.Open();
+
+                    string sql =
+@"SELECT parkCode, COUNT(parkCode) as NumOfFaves
+from survey_result
+Group BY parkCode
+ORDER BY NumOfFaves DESC";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+
+                    // Execute the command
+                    SqlDataReader rdr = cmd.ExecuteReader();
+
+                    // Loop through each row
+                    while (rdr.Read())
+                    {
+                        SurveyResultVM sResult = new SurveyResultVM();
+                        sResult.ParkCode = Convert.ToString(rdr["parkCode"]);
+                        sResult.NumOfFaves = Convert.ToInt32(rdr["NumOfFaves"]);
+                        surveyResults.Add(sResult);
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+
+            return surveyResults;
+        }
+
         private SurveyResult RowToObject(SqlDataReader rdr)
         {
             // Create a city

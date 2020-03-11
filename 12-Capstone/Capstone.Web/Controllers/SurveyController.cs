@@ -39,7 +39,7 @@ namespace Capstone.Web.Controllers
 
         public IActionResult Results()
         {
-            IList<SurveyResult> surveys = surveyResultDAO.GetSurveyResults();
+            IList<SurveyResultVM> surveys = surveyResultDAO.GetSurveyResultsOrdered();
             return View(surveys); 
         }
 
