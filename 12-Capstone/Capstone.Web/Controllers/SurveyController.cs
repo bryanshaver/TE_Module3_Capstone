@@ -25,7 +25,7 @@ namespace Capstone.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(SurveyResult survey) // may just use surveyID make sure to test
+        public IActionResult Index(SurveyResult survey)
         {
             if (!ModelState.IsValid)
             {
@@ -37,9 +37,10 @@ namespace Capstone.Web.Controllers
             
         }
 
-        public IActionResult Results(IList<SurveyResult> surveys)
+        public IActionResult Results()
         {
-            return View(surveys); // display data from ALL of the survey results
+            IList<SurveyResult> surveys = surveyResultDAO.GetSurveyResults();
+            return View(surveys); 
         }
 
     }
