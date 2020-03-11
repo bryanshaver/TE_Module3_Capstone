@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Capstone.Web.DAL
 {
-    public class WeatherDAO
+    public class WeatherDAO: IWeatherDAO
     {
         private readonly string connectionString;
 
@@ -16,7 +16,7 @@ namespace Capstone.Web.DAL
             this.connectionString = connectionString;
         }
 
-        public IList<Weather> GetWeather()
+        public IList<Weather> GetWeather(string parkCode)
         {
             List<Weather> weatherList = new List<Weather>();
 
@@ -30,8 +30,12 @@ namespace Capstone.Web.DAL
 
                     string sql =
 @"SELECT *
-FROM weather";
+FROM weather
+WHERE parkCode = @parkCode";
+
                     SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@parkcode", parkCode);
+
 
                     // Execute the command
                     SqlDataReader rdr = cmd.ExecuteReader();
