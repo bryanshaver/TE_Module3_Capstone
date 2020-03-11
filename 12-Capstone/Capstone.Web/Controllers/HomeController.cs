@@ -17,14 +17,16 @@ namespace Capstone.Web.Controllers
         //    this.parkDAO = parkDAO;
         //}
 
-        public IActionResult Index(IList<Park> parks)
+        public IActionResult Index()
         {
+            IList<Park> parks = parkDAO.GetParks();
             return View(parks);
         }
 
 
-        public IActionResult Detail(Park park)
+        public IActionResult Detail(string parkCode)
         {
+            Park park = parkDAO.GetParkByCode(parkCode);
             return View(park);
         }
 
