@@ -12,7 +12,7 @@
 
         <tr>
             <div class="park">
-                <td><a asp-controller="Home" asp-action="Detail" name="@park.ParkCode" id="@park.ParkCode"><img class="homephoto" src="/./images/parks/@(park.ParkCode).jpg" /></a></td>
+                <td><a asp-controller="Home" asp-action="Detail" asp-route-parkCode="@park.ParkCode"><img class="homephoto" src="/./images/parks/@(park.ParkCode).jpg" /></a></td>
                 <td><label>@park.ParkName</label></td>
                 <td><label>@park.State</label></td>
                 <td><p>@park.ParkDescription</p></td>

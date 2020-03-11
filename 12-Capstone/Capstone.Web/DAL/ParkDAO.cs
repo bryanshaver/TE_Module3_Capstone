@@ -67,7 +67,7 @@ FROM park";
 @"SELECT *
 FROM park 
 join weather on park.parkCode = weather.parkCode
-where parkCode = @parkcode";
+where park.parkCode = @parkcode";
 
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@parkcode", parkCode);
