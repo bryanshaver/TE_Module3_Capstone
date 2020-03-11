@@ -5,17 +5,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Capstone.Web.Models;
+using Capstone.Web.DAL;
 
 namespace Capstone.Web.Controllers
 {
     public class HomeController : Controller
     {
-        //private IParkDAO parkDAO;
+        private IParkDAO parkDAO;
 
-        //public HomeController(IParkDAO parkDAO)
-        //{
-        //    this.parkDAO = parkDAO;
-        //}
+        public HomeController(IParkDAO parkDAO)
+        {
+            this.parkDAO = parkDAO;
+        }
 
         public IActionResult Index()
         {

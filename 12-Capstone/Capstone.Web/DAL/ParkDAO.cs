@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Capstone.Web.DAL
 {
-    public class ParkDAO
+    public class ParkDAO : IParkDAO
     {
         private readonly string connectionString;
 

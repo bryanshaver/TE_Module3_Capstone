@@ -5,21 +5,21 @@
 
 
 
-    <table>
+<table>
 
-        @foreach (Park park in Model)
-        {
-            <a asp-controller="Home" asp-action="Detail">
-                <tr>
-                    <div class="park">
-                        <td><img class="homephoto" src="/./images/parks/@(park.ParkCode).jpg" /></td>
-                        <td><label>@park.ParkName</label></td>
-                        <td><label>@park.State</label></td>
-                        <td><p>@park.ParkDescription</p></td>
-                    </div>
-                </tr>
-            </a>
-        }
+    @foreach (Park park in Model)
+    {
+
+        <tr>
+            <div class="park">
+                <td><a asp-controller="Home" asp-action="Detail" name="@park.ParkCode" id="@park.ParkCode"><img class="homephoto" src="/./images/parks/@(park.ParkCode).jpg" /></a></td>
+                <td><label>@park.ParkName</label></td>
+                <td><label>@park.State</label></td>
+                <td><p>@park.ParkDescription</p></td>
+            </div>
+        </tr>
+
+    }
 
 
-    </table>
+</table>

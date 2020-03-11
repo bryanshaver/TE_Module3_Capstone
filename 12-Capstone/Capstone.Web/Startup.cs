@@ -32,7 +32,7 @@ namespace Capstone.Web
             });
 
             string connString = Configuration.GetConnectionString("NPS");
-            //services.AddTransient<IParkDAO, ParkDAO>(x => new ParkDAO(connString));
+            services.AddTransient<IParkDAO, ParkDAO>(x => new ParkDAO(connString));
             services.AddMvc();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
