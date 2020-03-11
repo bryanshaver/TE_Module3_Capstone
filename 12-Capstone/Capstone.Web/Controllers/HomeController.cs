@@ -30,10 +30,10 @@ namespace Capstone.Web.Controllers
         public IActionResult Detail(string parkCode, ParkWeatherVM vm)
         {
 
-            Park park = parkDAO.GetParkByCode(parkCode);
+            vm.Park = parkDAO.GetParkByCode(parkCode);
             IList<Weather> weather = weatherDAO.GetWeather(parkCode);
-            weather = weather.OrderBy(w => w.FiveDayForecastValue).ToList();
-            vm = new ParkWeatherVM();
+            vm.Weather = weather.OrderBy(w => w.FiveDayForecastValue).ToList();
+            
 
             return View(vm);
         }

@@ -19,14 +19,24 @@
         @foreach (Weather day in Model.Weather)
         {
             <tr>
-                <td><img src="~/images/weather/@(Model.DisplayWeatherIcon(Model.Weather)).png" /></td>
+                <td><img src="~/images/weather/@(day.DisplayWeatherIcon(day.Forecast)).png" /></td>
             </tr>
             <tr>
                 <td>@day.High</td>
-                <td>@day.Low</td>
-                <td>@day.Forecast</td>
-                <td><h3>@Model.WeatherAdvice["weather"]</h3></td>
             </tr>
+            <tr>
+                <td>@day.Low</td>
+            </tr>
+            <tr>
+                <td>@day.Forecast</td>
+            </tr>
+            <tr>
+                <td>@day.GiveAdvice(day.Forecast)</td>
+            </tr>
+            <tr>
+                <td>@day.GiveWarning(day.High, day.Low)</td>
+            </tr>
+
         }
 
     </tbody>

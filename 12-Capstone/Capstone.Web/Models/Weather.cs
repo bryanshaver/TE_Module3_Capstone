@@ -14,5 +14,78 @@ namespace Capstone.Web.Models
         public string Forecast { get; set; }
 
 
+        public Dictionary<string, string> WeatherAdvice = new Dictionary<string, string>()
+        {
+            {"sunny", "Make sure to wear sunblock!" },
+            {"rain", "Make sure to pack your rain gear and wear waterproof shoes!" },
+            {"thunderstorms", "Seek shelter immediately and avoid hiking on exposed ridges!" },
+            {"snow", "Make sure to pack your snowshoes!" }
+        };
+
+        public Dictionary<string, string> TempWarnings = new Dictionary<string, string>()
+        {
+            {"high", "Please bring an extra gallon of water." },
+            {"drop", "Make sure to wear breathable layers." },
+            {"low", "Be aware of the danger of exposurer in frigid temperatures." }
+        };
+
+        public string GiveWarning(int high, int low)
+        {
+            string warning = " ";
+            if (high - low > 20)
+            {
+                warning = TempWarnings["drop"];
+            }
+            else if (high > 75)
+            {
+                warning = TempWarnings["high"];
+            }
+            else if (low < 20)
+            {
+                warning = TempWarnings["low"];
+            }
+            return warning;
+        }
+
+
+        public string GiveAdvice(string forecast)
+        {
+            string advice = null;
+            if (forecast == "sunny")
+            {
+                advice = WeatherAdvice["sunny"];
+            }
+            else if (forecast == "rain")
+            {
+                advice = WeatherAdvice["rain"];
+            }
+            else if (forecast == "thunderstorms")
+            {
+                advice = WeatherAdvice["thunderstorms"];
+            }
+            else if (forecast == "snow")
+            {
+                advice = WeatherAdvice["snow"];
+            }
+            return advice;
+        }
+
+
+        public string DisplayWeatherIcon(string forecast)
+        {
+            if (forecast == "partly cloudy")
+            {
+                return "partlyCloudy";
+            }
+            else
+            {
+                return forecast;
+            }
+
+        }
+
+
+
+
     }
 }
