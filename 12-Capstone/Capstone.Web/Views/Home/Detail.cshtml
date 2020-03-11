@@ -1,0 +1,20 @@
+﻿@model Park
+@{
+    ViewData["Title"] = "Detail";
+}
+
+
+<img class="detailphoto" src="~/images/parks/@Model.ParkCode.jpg" />
+
+<h1>@Model.Name</h1>
+<h2>@Model.Acreage  in @Model.State | Year Founded @Model.YearFounded</h2>
+
+<p>@Model.Description</p>
+
+<h3>@Model.Climate</h3>
+<h3>@Model.NumberOfCampsites</h3>
+<h3>@Model.MilesOfTrail</h3>
+
+
+
+

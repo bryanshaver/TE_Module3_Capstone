@@ -10,9 +10,22 @@ namespace Capstone.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        //private IParkDAO parkDAO;
+
+        //public HomeController(IParkDAO parkDAO)
+        //{
+        //    this.parkDAO = parkDAO;
+        //}
+
+        public IActionResult Index(IList<Park> parks)
         {
-            return View();
+            return View(parks);
+        }
+
+
+        public IActionResult Detail(Park park)
+        {
+            return View(park);
         }
 
       
