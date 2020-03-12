@@ -5,49 +5,118 @@
 
 <h2>Daily Park Survey</h2>
 <form asp-controller="Survey" asp-action="Index" method="post">
-    <table class="table">
-        <tr>
-            <td><label asp-for="ParkCode">Park Code</label></td> 
-            <td>
-                <select id="ParkCode" name="ParkCode">
-                    <option value="CVNP">CVNP</option>
-                    <option value="ENP">ENP</option>
-                    <option value="GCNP">GCNP</option>
-                    <option value="GNP">GNP</option>
-                    <option value="GSMNP">GSMNP</option>
-                    <option value="GTNP">GTNP</option>
-                    <option value="MRNP">MRNP</option>
-                    <option value="RMNP">RMNP</option>
-                    <option value="YNP">YNP</option>
-                    <option value="YNP2">YNP2</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td><label asp-for="EmailAddress">Email Address</label><span asp-validation-for="EmailAddress"></span></td>
-            <td><input asp-for="EmailAddress" /></td>
-        </tr>
-        <tr>
-            <td><label asp-for="State">State of Residence</label><span asp-validation-for="State"></span></td>
-            <td><input asp-for="State" /></td>
-        </tr>
-        <tr>
-            <td><label asp-for="ActivityLevel">Activity Level</label><span asp-validation-for="ActivityLevel"></span></td>
-            <td>
-                <input type="radio" id="inactive" name="ActivityLevel" value="inactive">
-                <label for="inactive">inactive</label><br>
-                <input type="radio" id="sedentary" name="ActivityLevel" value="sedentary">
-                <label for="sedentary">sedentary</label><br>
-                <input type="radio" id="active" name="ActivityLevel" value="active">
-                <label for="active">active</label><br />
-                <input type="radio" id="extremely_active" name="ActivityLevel" value="extremely_active">
-                <label for="extremely_active">extremely active</label>
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><input type="submit" value="Submit!" /></td>
-        </tr>
-    </table>
+    <div id="survey-grid">
+        <div id="survey-labels">
+            <ul>
+                <li><label asp-for="ParkCode">Your Favorite Park</label></li>
+                <li><label asp-for="EmailAddress">Your Email Address</label></li>
+                <li><label asp-for="State">State of Residence</label></li>
+                <li><label asp-for="ActivityLevel">Activity Level</label></li>
+            </ul>
+        </div>
+        <div id="survey-inputs">
+            <ul>
+                <li>
+                    <select id="ParkCode" name="ParkCode">
+                        <option value="CVNP">CVNP</option>
+                        <option value="ENP">ENP</option>
+                        <option value="GCNP">GCNP</option>
+                        <option value="GNP">GNP</option>
+                        <option value="GSMNP">GSMNP</option>
+                        <option value="GTNP">GTNP</option>
+                        <option value="MRNP">MRNP</option>
+                        <option value="RMNP">RMNP</option>
+                        <option value="YNP">YNP</option>
+                        <option value="YNP2">YNP2</option>
+                    </select>
+                </li>
+                <li>
+                    <input asp-for="EmailAddress" /><span asp-validation-for="EmailAddress"></span>
+                </li>
+                <li>
+                    <input asp-for="State" /><span asp-validation-for="State"></span>
+                </li>
+                <li>
+                    <input type="radio" id="inactive" class="radioB" name="ActivityLevel" value="inactive">
+                    <label for="inactive">inactive</label>
+                    <input type="radio" id="sedentary" class="radioB" name="ActivityLevel" value="sedentary">
+                    <label for="sedentary">sedentary</label>
+                    <input type="radio" id="active" class="radioB" name="ActivityLevel" value="active">
+                    <label for="active">active</label>
+                    <input type="radio" id="extremely_active" class="radioB" name="ActivityLevel" value="extremely_active">
+                    <label for="extremely_active">extremely active</label><span asp-validation-for="ActivityLevel"></span>
+                </li>
+            </ul>
+            <input type="submit" value="Submit!" />
+        </div>
+    </div>
+
+    @*<table class="table">
+            <tr>
+                <td><label asp-for="ParkCode">Park Code</label></td>
+                <td>
+                    <select id="ParkCode" name="ParkCode">
+                        <option value="CVNP">CVNP</option>
+                        <option value="ENP">ENP</option>
+                        <option value="GCNP">GCNP</option>
+                        <option value="GNP">GNP</option>
+                        <option value="GSMNP">GSMNP</option>
+                        <option value="GTNP">GTNP</option>
+                        <option value="MRNP">MRNP</option>
+                        <option value="RMNP">RMNP</option>
+                        <option value="YNP">YNP</option>
+                        <option value="YNP2">YNP2</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label asp-for="EmailAddress">Email Address</label><span asp-validation-for="EmailAddress"></span></td>
+                <td><input asp-for="EmailAddress" /></td>
+            </tr>
+            <tr>
+                <td><label asp-for="State">State of Residence</label><span asp-validation-for="State"></span></td>
+                <td><input asp-for="State" /></td>
+            </tr>
+            <tr>
+                <td><label asp-for="ActivityLevel">Activity Level</label><span asp-validation-for="ActivityLevel"></span></td>
+                <td>
+                    <input type="radio" id="inactive" name="ActivityLevel" value="inactive">
+                    <label for="inactive">inactive</label><br>
+                    <input type="radio" id="sedentary" name="ActivityLevel" value="sedentary">
+                    <label for="sedentary">sedentary</label><br>
+                    <input type="radio" id="active" name="ActivityLevel" value="active">
+                    <label for="active">active</label><br />
+                    <input type="radio" id="extremely_active" name="ActivityLevel" value="extremely_active">
+                    <label for="extremely_active">extremely active</label>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Submit!" /></td>
+            </tr>
+        </table>*@
+
 </form>
+
+<style>
+    #survey-grid {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        grid-template-areas: "survey-label survey-input"
+    }
+    ul {
+        list-style: none;
+    }
+    li {
+        margin: 0px 0px 10px 0px;
+    }
+    .radioB {
+        display: inline-block;
+    }
+
+    span {
+        color: red;
+        margin-left: 10px;
+    }
+</style>
 
