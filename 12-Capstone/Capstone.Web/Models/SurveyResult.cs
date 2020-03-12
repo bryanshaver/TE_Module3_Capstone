@@ -9,15 +9,14 @@ namespace Capstone.Web.Models
     public class SurveyResult
     {
         public int SurveyId { get; set; }
-
+        [Required(ErrorMessage = "Please select a park")]
         public string ParkCode { get; set; }
 
         [Required(ErrorMessage = "Please enter a valid email address")]
         [EmailAddress]
         public string EmailAddress { get; set; }
 
-        [Required]
-        [MaxLength(2, ErrorMessage = "You must enter a two-character state code")]
+        [Required(ErrorMessage = "Please select your state of residence")]
         public string State { get; set; }
 
         [Required (ErrorMessage = "Please select an activity")]
