@@ -7,7 +7,7 @@
 <form asp-controller="Survey" asp-action="Index" method="post">
     <table class="table">
         <tr>
-            <td><label asp-for="ParkCode">Park Code</label></td> <!--Make this a drop down selection-->
+            <td><label asp-for="ParkCode">Park Code</label></td> 
             <td>
                 <select id="ParkCode" name="ParkCode">
                     <option value="CVNP">CVNP</option>
@@ -24,26 +24,26 @@
             </td>
         </tr>
         <tr>
-            <td><label asp-for="EmailAddress">Email Address</label></td>
-            <td><input asp-for="EmailAddress" /><span asp-validation-for="EmailAddress"></span></td>
+            <td><label asp-for="EmailAddress">Email Address</label><span asp-validation-for="EmailAddress"></span></td>
+            <td><input asp-for="EmailAddress" /></td>
         </tr>
         <tr>
-            <td><label asp-for="State">State of Residence</label></td><!--Remember to vaildate this-->
-            <td><input asp-for="State" /><span asp-validation-for="State"></span></td>
+            <td><label asp-for="State">State of Residence</label><span asp-validation-for="State"></span></td>
+            <td><input asp-for="State" /></td>
         </tr>
         <tr>
-            <td><label asp-for="ActivityLevel">Activity Level</label></td>
+            <td><label asp-for="ActivityLevel">Activity Level</label><span asp-validation-for="ActivityLevel"></span></td>
             <td>
                 <input type="radio" id="inactive" name="ActivityLevel" value="inactive">
                 <label for="inactive">inactive</label><br>
                 <input type="radio" id="sedentary" name="ActivityLevel" value="sedentary">
                 <label for="sedentary">sedentary</label><br>
                 <input type="radio" id="active" name="ActivityLevel" value="active">
-                <label for="active">active</label>
+                <label for="active">active</label><br />
                 <input type="radio" id="extremely_active" name="ActivityLevel" value="extremely_active">
                 <label for="extremely_active">extremely active</label>
             </td>
-</tr>
+        </tr>
         <tr>
             <td></td>
             <td><input type="submit" value="Submit!" /></td>

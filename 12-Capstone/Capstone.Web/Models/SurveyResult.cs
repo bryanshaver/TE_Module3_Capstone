@@ -14,7 +14,9 @@ namespace Capstone.Web.Models
         [EmailAddress]
         public string EmailAddress { get; set; }
         [Required]
+        [MaxLength(2, ErrorMessage = "You must enter a two-character state code")]
         public string State { get; set; }
+        [Required (ErrorMessage = "Please select an activity")]
         public string ActivityLevel { get; set; }
     }
 }
