@@ -4,20 +4,18 @@
 *@
 
     <div id="weather">
-        <section id="days">
             @foreach (Weather day in Model.Weather)
             {
+                <section id="days">
+                    <img src="~/images/weather/@(day.DisplayWeatherIcon(day.Forecast)).png" />
 
-                <img src="~/images/weather/@(day.DisplayWeatherIcon(day.Forecast)).png" />
+                    <h5>@day.High @day.Low</h5>
 
-                <p>@day.High @day.Low</p>
+                    <p>@day.Forecast</p>
 
-                @day.Forecast
+                    <p>@day.GiveAdvice(day.Forecast)</p>
 
-                @day.GiveAdvice(day.Forecast)
-
-                @day.GiveWarning(day.High, day.Low)
-
+                    <p>@day.GiveWarning(day.High, day.Low)</p>
+                </section>
             }
-        </section>
-    </div>
+</div>

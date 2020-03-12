@@ -83,12 +83,12 @@ body {
 
 #weather {
     display: flex;
-    flex-direction: column;
     justify-content: space-evenly;
 }
 
 #days {
     flex-basis: auto;
     margin: 4px;
+    max-width: 20%;
 }
 

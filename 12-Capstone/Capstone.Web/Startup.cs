@@ -31,11 +31,18 @@ namespace Capstone.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddSession(so =>
+            {
+                so.IdleTimeout = TimeSpan.FromSeconds(600);
+            });
+
             string connString = Configuration.GetConnectionString("NPS");
             services.AddTransient<IParkDAO, ParkDAO>(x => new ParkDAO(connString));
             services.AddTransient<IWeatherDAO, WeatherDAO>(x => new WeatherDAO(connString));
             services.AddTransient<ISurveyResultDAO, SurveyResultDAO>(x => new SurveyResultDAO(connString));
             services.AddMvc();
+            services.AddDistributedMemoryCache();
+            services.AddSession();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -53,6 +60,7 @@ namespace Capstone.Web
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseSession();
 
             app.UseMvc(routes =>
             {
