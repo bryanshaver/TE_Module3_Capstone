@@ -29,11 +29,16 @@ namespace Capstone.Web.Controllers
 
         public IActionResult Detail(string parkCode, ParkWeatherVM vm)
         {
-
+            // Get the details of the specific park and pass it into the view model.
             vm.Park = parkDAO.GetParkByCode(parkCode);
-            IList<Weather> weather = weatherDAO.GetWeather(parkCode);
-            vm.Weather = weather.OrderBy(w => w.FiveDayForecastValue).ToList();
 
+            //Get the weather for that particular park and pass it into the view model.
+            IList<Weather> weather = weatherDAO.GetWeather(parkCode);
+
+            //Seperate today's forecast from the rest of the days and then order the rest of the list.
+            weather = vm.GetTodaysForecast(weather);
+            vm.Weather = weather.OrderBy(w => w.FiveDayForecastValue).ToList();
+            
 
             return View(vm);
         }

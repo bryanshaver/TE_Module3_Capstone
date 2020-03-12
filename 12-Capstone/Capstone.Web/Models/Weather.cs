@@ -13,7 +13,6 @@ namespace Capstone.Web.Models
         public int High { get; set; }
         public string Forecast { get; set; }
 
-
         public Dictionary<string, string> WeatherAdvice = new Dictionary<string, string>()
         {
             {"sunny", "Make sure to wear sunblock!" },

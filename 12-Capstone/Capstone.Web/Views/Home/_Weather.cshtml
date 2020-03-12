@@ -3,19 +3,29 @@
 
 *@
 
-    <div id="weather">
-            @foreach (Weather day in Model.Weather)
-            {
-                <section id="days">
-                    <img src="~/images/weather/@(day.DisplayWeatherIcon(day.Forecast)).png" />
+<div id="weather">
 
-                    <h5>@day.High @day.Low</h5>
+    <section id="today">
+        <h3>Today</h3>
+        <img src="~/images/weather/@(Model.Today.DisplayWeatherIcon(Model.Today.Forecast)).png" />
+        <h5>@Model.Today.High  @Model.Today.Low</h5>
+        <p>@Model.Today.Forecast</p>
+        <p>@Model.Today.GiveAdvice(Model.Today.Forecast)</p>
+        <p>@Model.Today.GiveWarning(Model.Today.High, Model.Today.Low)</p>
+    </section>
 
-                    <p>@day.Forecast</p>
+    @foreach (Weather day in Model.Weather)
+    {
+        <section id="days">
+            <img src="~/images/weather/@(day.DisplayWeatherIcon(day.Forecast)).png" />
 
-                    <p>@day.GiveAdvice(day.Forecast)</p>
+            <h5>@day.High @day.Low</h5>
 
-                    <p>@day.GiveWarning(day.High, day.Low)</p>
-                </section>
-            }
+            <p>@day.Forecast</p>
+
+            <p>@day.GiveAdvice(day.Forecast)</p>
+
+            <p>@day.GiveWarning(day.High, day.Low)</p>
+        </section>
+    }
 </div>

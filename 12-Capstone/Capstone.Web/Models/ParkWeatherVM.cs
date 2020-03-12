@@ -17,7 +17,28 @@ namespace Capstone.Web.Models
 
         public IList<Weather> Weather = new List<Weather>();
 
+        public Weather Today { get; set; }
 
-        
+        public IList<Weather> GetTodaysForecast(IList<Weather> weather)
+        {
+            Weather = weather;
+
+            foreach (Weather day in weather)
+            {
+                if (day.FiveDayForecastValue == 1)
+                {
+                    Today = day;
+                    weather.Remove(day);
+                }
+                else
+                {
+                    continue;
+                }
+            }
+
+            return weather;
+        }
+
+
     }
 }
