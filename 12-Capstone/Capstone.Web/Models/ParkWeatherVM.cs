@@ -23,7 +23,7 @@ namespace Capstone.Web.Models
         {
             Weather = weather;
 
-            foreach (Weather day in weather)
+            foreach (Weather day in weather.ToList())
             {
                 if (day.FiveDayForecastValue == 1)
                 {
