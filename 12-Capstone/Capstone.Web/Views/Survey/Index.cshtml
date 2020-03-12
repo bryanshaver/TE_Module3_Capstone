@@ -25,7 +25,9 @@
                     <input asp-for="Survey.EmailAddress" /><span asp-validation-for="Survey.EmailAddress"></span>
                 </li>
                 <li>
-                    <input asp-for="Survey.State" /><span asp-validation-for="Survey.State"></span>
+                    <select asp-for="Survey.State" asp-items="Model.States">
+                        <option value=" "> </option>
+                    </select>
                 </li>
                 <li>
                     <input type="radio" id="inactive" class="radioB" name="ActivityLevel" value="inactive">
