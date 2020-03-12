@@ -3,7 +3,6 @@
     ViewData["Title"] = "Detail";
 }
 
-
 <img class="detailphoto" src="~/images/parks/@(Model.ParkCode).jpg" />
 <section id="name">
     <h1>@Model.Park.ParkName</h1>
@@ -11,7 +10,14 @@
 </section>
 
 <p id="description">@Model.Park.ParkDescription</p>
-
+<form asp-controller="Home" asp-action="Detail" asp-route-parkCode="@Model.Park.ParkCode" method="post">
+    <label asp-for="TempType">Temperature Type</label>
+    <input type="radio" id="F" name="TempType" value="F">
+    <label for="F">F</label>
+    <input type="radio" id="C" name="TempType" value="C">
+    <label for="C">C</label>
+    <input type="submit" value="Change Temperature" />
+</form>
 
 <partial name="_Weather" model="Model" />
 

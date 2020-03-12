@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Capstone.Web.Models;
 using Capstone.Web.DAL;
+using Microsoft.AspNetCore.Http;
 
 namespace Capstone.Web.Controllers
 {
@@ -26,9 +27,10 @@ namespace Capstone.Web.Controllers
             return View(parks);
         }
 
-
-        public IActionResult Detail(string parkCode, ParkWeatherVM vm)
+        [HttpGet]
+        public IActionResult Detail(string parkCode, ParkWeatherVM vm) //add temptype as a parameter
         {
+            
             // Get the details of the specific park and pass it into the view model.
             vm.Park = parkDAO.GetParkByCode(parkCode);
 
@@ -38,11 +40,37 @@ namespace Capstone.Web.Controllers
             //Seperate today's forecast from the rest of the days and then order the rest of the list.
             weather = vm.GetTodaysForecast(weather);
             vm.Weather = weather.OrderBy(w => w.FiveDayForecastValue).ToList();
+
+            //session will be GET in here, probably put it in to view model
             
+            if (HttpContext.Session.GetString("temperature") == null || HttpContext.Session.GetString("temperature") == "F")
+            {
+                vm.TempType = "F";
+                
+            }
+            else
+            {
+                vm.TempType = HttpContext.Session.GetString("temperature");
+                foreach(Weather w in weather)
+                {
+                    vm.Today.Low = (int)w.ConvertTemp("C", w.Low);
+                    vm.Today.High = (int)w.ConvertTemp("C", w.High);
+                    w.Low = (int)w.ConvertTemp("C", w.Low);
+                    w.High = (int)w.ConvertTemp("C", w.High);
+                }
+            }
 
             return View(vm);
         }
 
+        // make a detail httpPost
+        //session will be SET in here
+        [HttpPost]
+        public IActionResult Detail(string tempType, string parkCode, ParkWeatherVM vm)
+        {
+            HttpContext.Session.SetString("temperature", tempType);
+            return RedirectToAction("Detail", new { parkCode = parkCode, ParkWeatherVM = vm});
+        }
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
