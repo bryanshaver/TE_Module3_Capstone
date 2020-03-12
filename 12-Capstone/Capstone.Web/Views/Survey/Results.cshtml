@@ -5,11 +5,22 @@
 
 <h2>Daily Survey Results</h2>
 
+<body id="resultpage">
 
-@foreach (SurveyResultVM result in Model)
-{
-    <img src="~/images/parks/@(result.ParkCode).jpg" />
-    <p>@result.ParkName is a favorite.</p>
-    <p>Total Votes: @(result.NumOfFaves)</p>
-}
+    @foreach (SurveyResultVM result in Model)
+    {
+        <div id="results">
 
+            <section id="resultimg">
+                <img src="~/images/parks/@(result.ParkCode).jpg" id="imgpark"/>
+            </section>
+            <section id="resultpark">
+                <h3>@result.ParkName is a favorite.</h3>
+            </section>
+            <section id="resultcount">
+                <h3>Total Votes: @(result.NumOfFaves)</h3>
+            </section>
+        </div>
+
+    }
+</body>
