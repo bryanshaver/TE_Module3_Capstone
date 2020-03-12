@@ -10,7 +10,7 @@ namespace Capstone.Web.Models
     {
         public int SurveyId { get; set; }
         public string ParkCode { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter a valid email address")]
         [EmailAddress]
         public string EmailAddress { get; set; }
         [Required]
@@ -18,5 +18,6 @@ namespace Capstone.Web.Models
         public string State { get; set; }
         [Required (ErrorMessage = "Please select an activity")]
         public string ActivityLevel { get; set; }
+
     }
 }
