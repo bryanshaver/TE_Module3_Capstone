@@ -90,9 +90,10 @@ FROM survey_result";
                     conn.Open();
 
                     string sql =
-@"SELECT parkCode, COUNT(parkCode) as NumOfFaves
-from survey_result
-Group BY parkCode
+@"SELECT p.parkName as ParkName, s.parkCode as Code, COUNT(s.parkCode) as NumOfFaves
+from survey_result s
+JOIN park p ON p.parkCode = s.parkCode
+Group BY p.parkName, s.parkCode
 ORDER BY NumOfFaves DESC";
                     SqlCommand cmd = new SqlCommand(sql, conn);
 
@@ -103,7 +104,8 @@ ORDER BY NumOfFaves DESC";
                     while (rdr.Read())
                     {
                         SurveyResultVM sResult = new SurveyResultVM();
-                        sResult.ParkCode = Convert.ToString(rdr["parkCode"]);
+                        sResult.ParkName = Convert.ToString(rdr["ParkName"]);
+                        sResult.ParkCode = Convert.ToString(rdr["Code"]);
                         sResult.NumOfFaves = Convert.ToInt32(rdr["NumOfFaves"]);
                         surveyResults.Add(sResult);
                     }

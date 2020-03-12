@@ -17,7 +17,7 @@
         <div id="survey-inputs">
             <ul>
                 <li>
-                    <select asp-for="ParkCode" asp-items="Model.Parks">
+                    <select asp-for="Survey.ParkCode" asp-items="Model.Parks">
                         <option value=" "> </option>
                     </select>
                 </li>
@@ -30,14 +30,15 @@
                     </select>
                 </li>
                 <li>
-                    <input type="radio" id="inactive" class="radioB" name="ActivityLevel" value="inactive">
+                    <input type="radio" id="inactive" class="radioB" asp-for="Survey.ActivityLevel" value="inactive">
                     <label for="inactive">inactive</label>
-                    <input type="radio" id="sedentary" class="radioB" name="ActivityLevel" value="sedentary">
+                    <input type="radio" id="sedentary" class="radioB" asp-for="Survey.ActivityLevel" value="sedentary">
                     <label for="sedentary">sedentary</label>
-                    <input type="radio" id="active" class="radioB" name="ActivityLevel" value="active">
+                    <input type="radio" id="active" class="radioB" asp-for="Survey.ActivityLevel" value="active">
                     <label for="active">active</label>
-                    <input type="radio" id="extremely_active" class="radioB" name="ActivityLevel" value="extremely_active">
-                    <label for="extremely_active">extremely active</label><span asp-validation-for="Survey.ActivityLevel"></span>
+                    <input type="radio" id="extremely_active" class="radioB" asp-for="Survey.ActivityLevel" value="extremely_active">
+                    <label for="extremely_active">extremely active</label>
+                    <span asp-validation-for="Survey.ActivityLevel"></span>
                 </li>
             </ul>
             <input type="submit" value="Submit!" />

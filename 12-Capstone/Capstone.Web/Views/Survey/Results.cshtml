@@ -4,9 +4,12 @@
 }
 
 <h2>Daily Survey Results</h2>
+
+
 @foreach (SurveyResultVM result in Model)
 {
-    <p>@result.ParkCode has been voted as a favorite park @result.NumOfFaves times.</p>
+    <img src="~/images/parks/@(result.ParkCode).jpg" />
+    <p>@result.ParkName is a favorite.</p>
+    <p>Total Votes: @(result.NumOfFaves)</p>
 }
 
-<!--Find a way to count the total of each ParkCode in the database table and display the total count next to its parkcode-->

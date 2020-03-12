@@ -12,6 +12,8 @@ namespace Capstone.Web.Models
 
         public string ParkCode { get; set; }
 
+        public string ParkName { get; set; }
+
         public SelectList Parks { get; set; }
 
         public SurveyResult Survey { get; set; }
