@@ -1,4 +1,4 @@
-﻿@model SurveyResult
+﻿@model SurveyResultVM
 @{
     ViewData["Title"] = "Index";
 }
@@ -9,32 +9,23 @@
         <div id="survey-labels">
             <ul>
                 <li><label asp-for="ParkCode">Your Favorite Park</label></li>
-                <li><label asp-for="EmailAddress">Your Email Address</label></li>
-                <li><label asp-for="State">State of Residence</label></li>
-                <li><label asp-for="ActivityLevel">Activity Level</label></li>
+                <li><label asp-for="Survey.EmailAddress">Your Email Address</label></li>
+                <li><label asp-for="Survey.State">State of Residence</label></li>
+                <li><label asp-for="Survey.ActivityLevel">Activity Level</label></li>
             </ul>
         </div>
         <div id="survey-inputs">
             <ul>
                 <li>
-                    <select id="ParkCode" name="ParkCode">
-                        <option value="CVNP">CVNP</option>
-                        <option value="ENP">ENP</option>
-                        <option value="GCNP">GCNP</option>
-                        <option value="GNP">GNP</option>
-                        <option value="GSMNP">GSMNP</option>
-                        <option value="GTNP">GTNP</option>
-                        <option value="MRNP">MRNP</option>
-                        <option value="RMNP">RMNP</option>
-                        <option value="YNP">YNP</option>
-                        <option value="YNP2">YNP2</option>
+                    <select asp-for="ParkCode" asp-items="Model.Parks">
+                        <option value=" "> </option>
                     </select>
                 </li>
                 <li>
-                    <input asp-for="EmailAddress" /><span asp-validation-for="EmailAddress"></span>
+                    <input asp-for="Survey.EmailAddress" /><span asp-validation-for="Survey.EmailAddress"></span>
                 </li>
                 <li>
-                    <input asp-for="State" /><span asp-validation-for="State"></span>
+                    <input asp-for="Survey.State" /><span asp-validation-for="Survey.State"></span>
                 </li>
                 <li>
                     <input type="radio" id="inactive" class="radioB" name="ActivityLevel" value="inactive">
@@ -44,7 +35,7 @@
                     <input type="radio" id="active" class="radioB" name="ActivityLevel" value="active">
                     <label for="active">active</label>
                     <input type="radio" id="extremely_active" class="radioB" name="ActivityLevel" value="extremely_active">
-                    <label for="extremely_active">extremely active</label><span asp-validation-for="ActivityLevel"></span>
+                    <label for="extremely_active">extremely active</label><span asp-validation-for="Survey.ActivityLevel"></span>
                 </li>
             </ul>
             <input type="submit" value="Submit!" />
