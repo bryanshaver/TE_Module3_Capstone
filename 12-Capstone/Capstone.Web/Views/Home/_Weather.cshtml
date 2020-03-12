@@ -7,7 +7,7 @@
 
     <section id="today">
         <h3>Today</h3>
-        <img src="~/images/weather/@(Model.Today.DisplayWeatherIcon(Model.Today.Forecast)).png" />
+        <img src="~/images/weather/@(Model.Today.DisplayWeatherIcon(Model.Today.Forecast)).png" id="todayImg"/>
         <h5>@Model.Today.High  @Model.Today.Low</h5>
         <p>@Model.Today.Forecast</p>
         <p>@Model.Today.GiveAdvice(Model.Today.Forecast)</p>
@@ -16,8 +16,8 @@
 
     @foreach (Weather day in Model.Weather)
     {
-        <section id="days">
-            <img src="~/images/weather/@(day.DisplayWeatherIcon(day.Forecast)).png" />
+        <section class="days">
+            <img src="~/images/weather/@(day.DisplayWeatherIcon(day.Forecast)).png" class="daysImg"/>
 
             <h5>@day.High @day.Low</h5>
 
