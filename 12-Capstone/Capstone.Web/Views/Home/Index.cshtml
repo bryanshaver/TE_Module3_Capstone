@@ -10,7 +10,7 @@
     @foreach (Park park in Model)
     {
 
-        <a asp-controller="Home" asp-action="Detail" asp-route-parkCode="@park.ParkCode">
+        <a id="park" asp-controller="Home" asp-action="Detail" asp-route-parkCode="@park.ParkCode">
 
             <div class="park">
                 <section id="parkphoto">
