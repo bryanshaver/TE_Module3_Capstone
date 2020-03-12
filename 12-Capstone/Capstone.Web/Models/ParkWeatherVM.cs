@@ -9,6 +9,7 @@ namespace Capstone.Web.Models
     {
         public string ParkCode { get; set; }
         public Park Park { get; set; }
+        public string TempType { get; set; }
 
         public Weather Day { get; set; }
 

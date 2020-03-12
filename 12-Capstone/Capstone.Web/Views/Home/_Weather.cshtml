@@ -8,7 +8,7 @@
     <section id="today">
         <h3>Today</h3>
         <img src="~/images/weather/@(Model.Today.DisplayWeatherIcon(Model.Today.Forecast)).png" id="todayImg"/>
-        <h5>@Model.Today.High  @Model.Today.Low</h5>
+        <h5>@Model.Today.High @Model.TempType  @Model.Today.Low @Model.TempType</h5>
         <p>@Model.Today.Forecast</p>
         <p>@Model.Today.GiveAdvice(Model.Today.Forecast)</p>
         <p>@Model.Today.GiveWarning(Model.Today.High, Model.Today.Low)</p>
@@ -19,7 +19,7 @@
         <section class="days">
             <img src="~/images/weather/@(day.DisplayWeatherIcon(day.Forecast)).png" class="daysImg"/>
 
-            <h5>@day.High @day.Low</h5>
+            <h5>@day.High @Model.TempType @day.Low @Model.TempType</h5>
 
             <p>@day.Forecast</p>
 
