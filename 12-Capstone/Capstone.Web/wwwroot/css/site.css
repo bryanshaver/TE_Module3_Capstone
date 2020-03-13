@@ -83,17 +83,47 @@ body {
         text-decoration-line: unset;
     }
 
+#photoAndTitle {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap: 10px;
+    grid-template-areas: "photo detail"
+}
+
 .detailphoto {
-    width: 80%;
+    grid-area: photo;
+    width: 100%;
     display: block;
     margin: auto;
+    border-radius: 10%;
+}
+
+
+@media screen and (min-width: 950px) {
+    .parkNameDetail {
+        font-family: Candara, Arial, Helvetica, sans-serif;
+        text-align: center;
+        width: 100%;
+        font-size: 50px;
+    }
+}
+@media screen and (max-width: 949px) {
+    .parkNameDetail {
+        font-family: Candara, Arial, Helvetica, sans-serif;
+        text-align: center;
+        width: 100%;
+        font-size: 26px;
+    }
 }
 
 #name {
-    margin: 0px;
+    grid-area: detail;
+    align-self: center;
+    margin: 10px 5px;
 }
 
 #description {
+    margin-top: 10px;
     text-emphasis-color: black;
 }
 
@@ -178,7 +208,7 @@ body {
 #resultcount {
     grid-area: count;
     padding: 10px;
-    vertical-align:baseline;
+    vertical-align: baseline;
 }
 
     #resultcount h3 {
@@ -188,3 +218,33 @@ body {
         border: solid 1px black;
     }
 
+.tempSubmit {
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    text-decoration: none;
+    
+}
+
+    .tempSubmit:hover {
+        box-shadow: 2px 4px gray;
+        position: relative;
+        bottom: 1px;
+        right: 1px;
+    }
+
+.surveyButton {
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    text-decoration: none;
+    margin-left: 40px;
+}
+.surveyButton:hover {
+    box-shadow: 2px 4px gray;
+    position: relative;
+    bottom: 1px;
+    right: 1px;
+}
