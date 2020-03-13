@@ -3,6 +3,7 @@ for details on configuring this project to bundle and minify static web assets. 
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: cornsilk; /*Bryan Edit*/
 }
 
 /* Wrapping element */
@@ -58,6 +59,7 @@ body {
     justify-content: space-evenly;
     margin: 10px;
     border: solid 1px gray;
+    background-color: cornsilk; /*Bryan Edit*/
 }
 
 #parkphoto {
@@ -82,7 +84,7 @@ body {
     }
 
 .detailphoto {
-    width: 100%;
+    width: 80%;
     display: block;
     margin: auto;
 }
@@ -185,3 +187,4 @@ body {
         padding: 5px;
         border: solid 1px black;
     }
+
