@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Formatting;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace Capstone.Web.Models
@@ -12,6 +16,10 @@ namespace Capstone.Web.Models
         public int Low { get; set; }
         public int High { get; set; }
         public string Forecast { get; set; }
+
+        public string Longitude { get; set; }
+
+        public string Latitude { get; set; }
 
         public Dictionary<string, string> WeatherAdvice = new Dictionary<string, string>()
         {
@@ -100,8 +108,7 @@ namespace Capstone.Web.Models
 
         }
 
-
-
+       
 
     }
 }

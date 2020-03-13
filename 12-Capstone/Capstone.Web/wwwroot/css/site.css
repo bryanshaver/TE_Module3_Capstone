@@ -163,7 +163,8 @@ body {
 #resultpark {
     grid-area: park;
     padding: 10px;
-    vertical-align: baseline;
+    vertical-align: middle;
+    line-height: 200px;
 }
 
     #resultpark h3 {
@@ -176,7 +177,8 @@ body {
 #resultcount {
     grid-area: count;
     padding: 10px;
-    vertical-align:baseline;
+    vertical-align: middle;
+    line-height: 200px;
 }
 
     #resultcount h3 {
