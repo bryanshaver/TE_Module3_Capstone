@@ -2,13 +2,34 @@
 @{
     ViewData["Title"] = "Detail";
 }
-
-<img class="detailphoto" src="~/images/parks/@(Model.ParkCode).jpg" />
-<section id="name">
-    <h1>@Model.Park.ParkName</h1>
-    <h4>@Model.Park.Acreage acres in @Model.Park.State | Year Founded @Model.Park.YearFounded</h4>
+<h1 class="parkNameDetail">@Model.Park.ParkName</h1>
+<section id="photoAndTitle">
+    <img class="detailphoto" src="~/images/parks/@(Model.ParkCode).jpg" />
+    <section id="name">
+        <h4>Year Founded @Model.Park.YearFounded</h4>
+        <h4>@Model.Park.Acreage acres in @Model.Park.State</h4>
+        <h4>Climate: @Model.Park.Climate</h4>
+        <h4>Entry Fee: $@Model.Park.EntryFee</h4>
+        <p id="parkelevation">
+            @Model.Park.ParkName is @Model.Park.ElevationInFeet above sea-level. There are @Model.Park.MilesOfTrail miles of trail and @Model.Park.NumberOfCampsites campsites.
+            The park attracts @Model.Park.AnnualVisitorCount visitors every year, and contains @Model.Park.NumberOfAnimalSpecies different animal species.
+        </p>
+    </section>
 </section>
-
+@*<section id="name">
+        <h4><i>"@Model.Park.InspirationalQuote"</i></h4>
+        <h4>~@Model.Park.InspirationalQuoteSource</h4>
+        <br />
+        <h4>@Model.Park.Acreage acres in @Model.Park.State | Climate: @Model.Park.Climate | Year Founded @Model.Park.YearFounded</h4>
+        <h4>Entry Fee: $@Model.Park.EntryFee</h4>
+        <p id="parkelevation">
+            @Model.Park.ParkName is @Model.Park.ElevationInFeet above sea-level. There are @Model.Park.MilesOfTrail miles of trail and @Model.Park.NumberOfCampsites campsites.
+            The park attracts @Model.Park.AnnualVisitorCount visitors every year, and contains @Model.Park.NumberOfAnimalSpecies different animal species.
+        </p>
+    </section>*@
+<h4><i>"@Model.Park.InspirationalQuote"</i></h4>
+<h4>~@Model.Park.InspirationalQuoteSource</h4>
+<br />
 <p id="description">@Model.Park.ParkDescription</p>
 <form asp-controller="Home" asp-action="Detail" asp-route-parkCode="@Model.Park.ParkCode" method="post">
     <label asp-for="TempType">Temperature Type</label>
@@ -16,7 +37,7 @@
     <label for="F">F</label>
     <input type="radio" id="C" name="TempType" value="C">
     <label for="C">C</label>
-    <input type="submit" value="Change Temperature" />
+    <input class="tempSubmit" type="submit" value="Change Temperature" />
 </form>
 
 <partial name="_Weather" model="Model" />

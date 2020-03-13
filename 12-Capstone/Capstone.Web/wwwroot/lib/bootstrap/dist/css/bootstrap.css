@@ -187,7 +187,7 @@ td,
 th {
   padding: 0;
 }
-/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
+! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css 
 @media print {
   *,
   *:before,
@@ -1087,6 +1087,7 @@ body {
   line-height: 1.42857143;
   color: #333;
   background-color: #fff;
+  margin-top: 50px; /*Bryan edit*/
 }
 input,
 button,
@@ -3982,8 +3983,14 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .nav > li > a {
   position: relative;
-  display: block;
+  /*display: block;*/
   padding: 10px 15px;
+  /*Bryan Edit*/
+  height: 100px;
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 20px;
+
 }
 .nav > li > a:hover,
 .nav > li > a:focus {
@@ -4168,6 +4175,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   min-height: 50px;
   margin-bottom: 20px;
   border: 1px solid transparent;
+  height: 100px; /*Bryan Edit*/
 }
 @media (min-width: 768px) {
   .navbar {
@@ -4273,7 +4281,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-brand {
   float: left;
-  height: 50px;
+  /*height: 50px;*/
+  height: 100px; /*Bryan Edit*/
   padding: 15px 15px;
   font-size: 18px;
   line-height: 20px;

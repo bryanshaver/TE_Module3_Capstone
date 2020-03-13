@@ -68,8 +68,15 @@ namespace Capstone.Web.Controllers
         [HttpPost]
         public IActionResult Detail(string tempType, string parkCode, ParkWeatherVM vm)
         {
-            HttpContext.Session.SetString("temperature", tempType);
-            return RedirectToAction("Detail", new { parkCode = parkCode, ParkWeatherVM = vm});
+            if (tempType == null)
+            {
+                return RedirectToAction("Detail", new { parkCode = parkCode, ParkWeatherVM = vm });
+            }
+            else
+            {
+                HttpContext.Session.SetString("temperature", tempType);
+                return RedirectToAction("Detail", new { parkCode = parkCode, ParkWeatherVM = vm });
+            }
         }
 
 

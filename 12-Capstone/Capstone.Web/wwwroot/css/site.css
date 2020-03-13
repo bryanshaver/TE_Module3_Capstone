@@ -3,6 +3,7 @@ for details on configuring this project to bundle and minify static web assets. 
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: cornsilk; /*Bryan Edit*/
 }
 
 /* Wrapping element */
@@ -58,6 +59,7 @@ body {
     justify-content: space-evenly;
     margin: 10px;
     border: solid 1px gray;
+    background-color: cornsilk; /*Bryan Edit*/
 }
 
 #parkphoto {
@@ -81,17 +83,47 @@ body {
         text-decoration-line: unset;
     }
 
+#photoAndTitle {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap: 10px;
+    grid-template-areas: "photo detail"
+}
+
 .detailphoto {
+    grid-area: photo;
     width: 100%;
     display: block;
     margin: auto;
+    border-radius: 10%;
+}
+
+
+@media screen and (min-width: 950px) {
+    .parkNameDetail {
+        font-family: Candara, Arial, Helvetica, sans-serif;
+        text-align: center;
+        width: 100%;
+        font-size: 50px;
+    }
+}
+@media screen and (max-width: 949px) {
+    .parkNameDetail {
+        font-family: Candara, Arial, Helvetica, sans-serif;
+        text-align: center;
+        width: 100%;
+        font-size: 26px;
+    }
 }
 
 #name {
-    margin: 0px;
+    grid-area: detail;
+    align-self: center;
+    margin: 10px 5px;
 }
 
 #description {
+    margin-top: 10px;
     text-emphasis-color: black;
 }
 
@@ -163,8 +195,7 @@ body {
 #resultpark {
     grid-area: park;
     padding: 10px;
-    vertical-align: middle;
-    line-height: 200px;
+    vertical-align: baseline;
 }
 
     #resultpark h3 {
@@ -177,8 +208,7 @@ body {
 #resultcount {
     grid-area: count;
     padding: 10px;
-    vertical-align: middle;
-    line-height: 200px;
+    vertical-align: baseline;
 }
 
     #resultcount h3 {
@@ -187,3 +217,34 @@ body {
         padding: 5px;
         border: solid 1px black;
     }
+
+.tempSubmit {
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    text-decoration: none;
+    
+}
+
+    .tempSubmit:hover {
+        box-shadow: 2px 4px gray;
+        position: relative;
+        bottom: 1px;
+        right: 1px;
+    }
+
+.surveyButton {
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    text-decoration: none;
+    margin-left: 40px;
+}
+.surveyButton:hover {
+    box-shadow: 2px 4px gray;
+    position: relative;
+    bottom: 1px;
+    right: 1px;
+}
