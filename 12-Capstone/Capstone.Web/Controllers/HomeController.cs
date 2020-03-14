@@ -23,6 +23,7 @@ namespace Capstone.Web.Controllers
 
         public IActionResult Index()
         {
+            //Get a list of all the parks and pass it into the view.
             IList<Park> parks = parkDAO.GetParks();
             return View(parks);
         }
@@ -68,15 +69,8 @@ namespace Capstone.Web.Controllers
         [HttpPost]
         public IActionResult Detail(string tempType, string parkCode, ParkWeatherVM vm)
         {
-            if (tempType == null)
-            {
-                return RedirectToAction("Detail", new { parkCode = parkCode, ParkWeatherVM = vm });
-            }
-            else
-            {
-                HttpContext.Session.SetString("temperature", tempType);
-                return RedirectToAction("Detail", new { parkCode = parkCode, ParkWeatherVM = vm });
-            }
+            HttpContext.Session.SetString("temperature", tempType);
+            return RedirectToAction("Detail", new { parkCode = parkCode, ParkWeatherVM = vm});
         }
 
 

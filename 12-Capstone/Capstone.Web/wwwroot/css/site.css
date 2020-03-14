@@ -83,19 +83,30 @@ body {
         text-decoration-line: unset;
     }
 
-#photoAndTitle {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-column-gap: 10px;
-    grid-template-areas: "photo detail"
+#parkname {
+    font-family: Candara, Arial, Helvetica, sans-serif;
+    font-size:larger;
+    font-weight: bolder;
 }
 
+#parkinfo > h5 {
+    font-family: Candara, Arial, Helvetica, sans-serif;
+    font-size: medium;
+}
+
+.park {
+    transition: all .2s ease-in-out;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+
+    .park:hover {
+        transform: scale(0.95);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
 .detailphoto {
-    grid-area: photo;
     width: 100%;
-    display: block;
     margin: auto;
-    border-radius: 10%;
 }
 
 
@@ -116,10 +127,40 @@ body {
     }
 }
 
-#name {
-    grid-area: detail;
-    align-self: center;
-    margin: 10px 5px;
+@media screen and (min-width: 950px) {
+    #name > h4 {
+        font-family: Candara, Arial, Helvetica, sans-serif;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 949px) {
+    #name > h4 {
+        font-family: Candara, Arial, Helvetica, sans-serif;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 950px) {
+    #quote {
+        font-family: Candara, Arial, Helvetica, sans-serif;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 949px) {
+    #quote {
+        font-family: Candara, Arial, Helvetica, sans-serif;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+h5 {
+    font-family: Candara, Arial, Helvetica, sans-serif;
 }
 
 #description {
@@ -247,4 +288,18 @@ body {
     position: relative;
     bottom: 1px;
     right: 1px;
+}
+
+.advice {
+    color: blue;
+}
+
+.warning {
+    color: red;
+}
+
+#today > h3 {
+    font-family: Candara, Arial, Helvetica, sans-serif;
+    text-align: center;
+    width: 100%;
 }

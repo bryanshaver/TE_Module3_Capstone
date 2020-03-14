@@ -10,8 +10,8 @@
         <img src="~/images/weather/@(Model.Today.DisplayWeatherIcon(Model.Today.Forecast)).png" id="todayImg"/>
         <h5>@Model.Today.High @Model.TempType  @Model.Today.Low @Model.TempType</h5>
         <p>@Model.Today.Forecast</p>
-        <p>@Model.Today.GiveAdvice(Model.Today.Forecast)</p>
-        <p>@Model.Today.GiveWarning(Model.Today.High, Model.Today.Low)</p>
+        <p class="advice">@Model.Today.GiveAdvice(Model.Today.Forecast)</p>
+        <p class="warning">@Model.Today.GiveWarning(Model.Today.High, Model.Today.Low)</p>
     </section>
 
     @foreach (Weather day in Model.Weather)
@@ -23,9 +23,9 @@
 
             <p>@day.Forecast</p>
 
-            <p>@day.GiveAdvice(day.Forecast)</p>
+            <p class="advice">@day.GiveAdvice(day.Forecast)</p>
 
-            <p>@day.GiveWarning(day.High, day.Low)</p>
+            <p class="warning">@day.GiveWarning(day.High, day.Low)</p>
         </section>
     }
 </div>
